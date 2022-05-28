@@ -1,6 +1,7 @@
 package com.workshop;
 
 import java.util.Scanner;
+
 import java.util.Random;
 
     public class TicTacToeGame {
@@ -12,7 +13,7 @@ import java.util.Random;
         public static char[] create() {
 
             board = new char[10];
-            for (int a =1; a<board.length;a++){
+            for (int a = 1; a < board.length; a++) {
                 board[a] = ' ';
             }
 
@@ -34,11 +35,11 @@ import java.util.Random;
             System.out.println("Computer " + comp);
         }
 
-        public static void showBoard(char[] board){
+        public static void showBoard(char[] board) {
 
             System.out.println(board[1] + " | " + board[2] + " | " + board[3]);
             System.out.println("-----------");
-            System.out.println(board[4] + " | " + board[5]+ " | " + board[6]);
+            System.out.println(board[4] + " | " + board[5] + " | " + board[6]);
             System.out.println("-----------");
             System.out.println(board[7] + " | " + board[8] + " | " + board[9]);
 
@@ -80,7 +81,7 @@ import java.util.Random;
             }
         }
 
-        public static boolean isValidMove (char[] board, String position) {
+        public static boolean isValidMove(char[] board, String position) {
 
             switch (position) {
                 case "1":
@@ -121,9 +122,9 @@ import java.util.Random;
             }
 
             for (int i = 0; i < board.length; i++) {
-                    if (board[i]== ' ') {
-                        return false;
-                    }
+                if (board[i] == ' ') {
+                    return false;
+                }
 
             }
             showBoard(board);
@@ -133,16 +134,16 @@ import java.util.Random;
 
 
         private static boolean hasContestantWon(char[] board, char symbol) {
-            if ((board[1] == symbol && board [2]== symbol && board [3] == symbol) ||
-                    (board[4] == symbol && board [5] == symbol && board [6] == symbol) ||
-                    (board[7] == symbol && board [8] == symbol && board [9] == symbol) ||
+            if ((board[1] == symbol && board[2] == symbol && board[3] == symbol) ||
+                    (board[4] == symbol && board[5] == symbol && board[6] == symbol) ||
+                    (board[7] == symbol && board[8] == symbol && board[9] == symbol) ||
 
-                    (board[1] == symbol && board [4] == symbol && board [7] == symbol) ||
-                    (board[2] == symbol && board [5] == symbol && board [8] == symbol) ||
-                    (board[3] == symbol && board [6] == symbol && board [9] == symbol) ||
+                    (board[1] == symbol && board[4] == symbol && board[7] == symbol) ||
+                    (board[2] == symbol && board[5] == symbol && board[8] == symbol) ||
+                    (board[3] == symbol && board[6] == symbol && board[9] == symbol) ||
 
-                    (board[1] == symbol && board [5] == symbol && board [9] == symbol) ||
-                    (board[3] == symbol && board [5] == symbol && board [7] == symbol) ) {
+                    (board[1] == symbol && board[5] == symbol && board[9] == symbol) ||
+                    (board[3] == symbol && board[5] == symbol && board[7] == symbol)) {
                 return true;
             }
             return false;
@@ -164,10 +165,14 @@ import java.util.Random;
 
         public static void playerTurn(char[] board, Scanner scanner) {
             String userInput;
+            //int position = s.nextInt();
+            //isValidMove(board,Integer.toString(position));
+            //placeMove(board, Integer.toString(position), 'O');
+
             while (true) {
                 System.out.println("Enter Your Move!!");
                 userInput = scanner.nextLine();
-                if (isValidMove(board, userInput)){
+                if (isValidMove(board, userInput)) {
                     break;
                 } else {
                     System.out.println(userInput + " is not a valid move.");
@@ -175,32 +180,8 @@ import java.util.Random;
             }
             placeMove(board, userInput, 'X');
         }
-
-
-
-        public static void main (String[]args){
-
-            //TicTacToeGame ob = new TicTacToeGame();
-            Scanner scanner = new Scanner(System.in);
-            create();
-            choice();
-            showBoard(board);
-
-            while (true) {
-                playerTurn(board, scanner);
-                if (isGameFinished(board)){
-                    break;
-                }
-                showBoard(board);
-
-                computerTurn(board);
-                if (isGameFinished(board)){
-                    break;
-                }
-                showBoard(board);
-            }
-            scanner.close();
-
-        }
     }
+
+
+
 
