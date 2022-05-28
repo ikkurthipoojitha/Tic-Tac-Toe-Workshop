@@ -104,7 +104,7 @@ public class TicTacToeGame {
         }
     }
 
-        public static void main (String[]args){
+    public static void main (String[]args){
 
             //TicTacToeGame ob = new TicTacToeGame();
             Scanner s = new Scanner(System.in);
@@ -115,5 +115,5 @@ public class TicTacToeGame {
             isValidMove(board,Integer.toString(position));
             placeMove(board, Integer.toString(position), 'O');
 
-        }
+    }
 }
